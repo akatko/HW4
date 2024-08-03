@@ -22,14 +22,6 @@ drive_download(as_id(file_id), path = "preprint_growth.rda", overwrite = TRUE)
 file_path <- "preprint_growth.rda"
 
 
-if (file.exists(file_path)) {
-  load(file = file_path)
-  cat("File loaded successfully using load().\n")
-} else {
-  stop("File does not exist at the specified path.")
-}
-
-
 if (exists("preprint_growth")) {
   print(head(preprint_growth))
   
@@ -58,8 +50,8 @@ if (exists("preprint_growth")) {
       )
     ) +
     scale_x_date(name = "year", 
-                 limits = c(ymd("2015-01-01"), ymd("2017-01-01"))) +
-    scale_color_manual(values = c("#0072b2", "#D55E00", "#009e73"), 
+                 limits = c(ymd("2014-01-01"), ymd("2017-01-01"))) +
+    scale_color_manual(values = c("orchid", "slateblue", "gold"), 
                        name = NULL) +
     theme(legend.position = "none") +
     ggtitle("Preprint Growth Over Time")
